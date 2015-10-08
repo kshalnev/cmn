@@ -145,9 +145,10 @@ private:
   };
 
 public:
-  VariantValue() : m_valid(false) {}
+  VariantValue() : m_value(), m_valid(false) {}
   VariantValue(VariantValue const &) = default;
-  VariantValue(Variant const & variant) : m_valid(false)
+  VariantValue(Variant const & variant)
+      : m_value(), m_valid(false)
   {
     VariantValueGetter getter(m_value, m_valid);
     variant.Get(getter);
